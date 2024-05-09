@@ -2,14 +2,38 @@ import React from 'react';
 
 import './styles.css';
 
+const SCANNER_Y = 15
+const SCANNER_X = -22.5
+
+const INDICATOR_Y = 6
+
 const Scanner = () => {
     return <section className="scannerContainer">
-        <svg viewBox="0 0 100 100">
-        <circle fill="#e5a3a6" cx="50" cy="50" r="6.15"/>
-            <circle fill="#ebebf5" cx="50" cy="50" r="6"/>
-            <circle fill="#a1b9cf" cx="50" cy="50" r="5.5"/>
-            <circle fill="#619ddb" cx="50" cy="50" r="5.25"/>
-            <polygon points="47,51, 51,51, 51,47 47,47" fill="white" transform="rotate(90 0 0)"/>
+        <div className=""/>
+        <div className=""/>
+        <svg height={200} width={400} viewBox="0 0 75 75">
+            <g>
+                <circle fill="#e5a3a6" cx={SCANNER_X} cy={SCANNER_Y} r="8.15"/>
+                <circle fill="#ebebf5" cx={SCANNER_X} cy={SCANNER_Y} r="8"/>
+                <circle fill="#a1b9cf" cx={SCANNER_X} cy={SCANNER_Y} r="7.5"/>
+                <circle fill="#619ddb" cx={SCANNER_X} cy={SCANNER_Y} r="7.25"/>
+                <circle fill="#fff" cx={-25} cy={SCANNER_Y - 2.5} r="2"/>
+            </g>
+            <g>
+                <circle fill="#e5a3a6" cx={-5} cy={INDICATOR_Y} r={2.75}/>
+                <circle fill="#b83342" cx={-5} cy={INDICATOR_Y} r={2.5}/>
+                <circle fill="#fff" cx={-6} cy={INDICATOR_Y - 0.75} r={0.5}/>
+            </g>
+            <g>
+                <circle fill="#e5a3a6" cx={4} cy={INDICATOR_Y} r={2.75}/>
+                <circle fill="#f4f948" cx={4} cy={INDICATOR_Y} r={2.5}/>
+                <circle fill="#fff" cx={3} cy={INDICATOR_Y - 0.75} r={0.5}/>
+            </g>
+            <g>
+                <circle fill="#e5a3a6" cx={12} cy={INDICATOR_Y} r={2.75}/>
+                <circle fill="#5cc075" cx={12} cy={INDICATOR_Y} r={2.5}/>
+                <circle fill="#fff" cx={11} cy={INDICATOR_Y - 0.75} r={0.5}/>
+            </g>
         </svg>
     </section>
 }
