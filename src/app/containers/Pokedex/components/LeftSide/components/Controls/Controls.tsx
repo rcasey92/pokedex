@@ -41,7 +41,7 @@ const Controls = () => {
           <PillButton label={"blah"} className="blueButton" />
         </div>
       </div>
-      <svg className="leftSpeakerDots">
+      <svg className="speakerDots">
         <circle fill="#000" cx={35} cy={47.5} r={3.5} />
         <circle fill="#000" cx={60} cy={47.5} r={3.5} />
       </svg>
@@ -59,6 +59,12 @@ const Controls = () => {
         <button className="control down">Down</button>
         <button className="control left">Left</button>
       </div>
+      <svg className="speakerDots bottomSpeakerDots">
+        <circle fill="#000" cx={215} cy={4} r={3.5} />
+        <rect height={3} width={10} x={226} y={2.5} rx={1.5} ry={1.5} fill="#000"/>
+        <circle fill="#000" cx={244} cy={4} r={1.75} />
+        <rect height={3} width={10} x={252} y={2.5} rx={1.5} ry={1.5} fill="#000"/>
+      </svg>
     </section>
   );
 };

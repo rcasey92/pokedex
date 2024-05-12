@@ -1,5 +1,19 @@
 .rightSideContainer {
+    position: relative;
     background-color: #dc082e;
     width: 25rem;
-    height: 40rem;
+    height: 36.25rem;
+    border-bottom-right-radius: 1.5rem;
+    border-left: 1px solid black;
+}
+
+.rightSideContainer::before {
+    content: "";
+    position: relative;
+    display: flex;
+    background-color: indigo;
+    height: 5rem;
+    width: 25rem;
+    clip-path: path('M0,0 Q125,100 250,0 V500 H0 Z');
+
 }

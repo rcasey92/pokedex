@@ -1,3 +1,4 @@
 .pokedexContainer {
     display: flex;
+    align-items:flex-end;
 }
