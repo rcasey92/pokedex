@@ -1,0 +1,135 @@
+.controlGrid {
+  height: 10rem;
+
+  .controlButton {
+    position: absolute;
+    transform: translateY(-1rem);
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  padding-top: 0.7rem;
+  padding-left: 6rem;
+
+  .redButton {
+    background-color: #b8323a;
+    margin-right: 0.75rem;
+  }
+
+  .blueButton {
+    background-color: #609ed7;
+  }
+}
+
+.leftSpeakerDots {
+  position: absolute;
+}
+
+.currentPokemonIdScreen {
+  background: linear-gradient(
+    to right,
+    #6ba66e 0%,
+    #6ba66e 2rem,
+    #453132 2rem,
+    #453132 2.1rem,
+    #6ba66e 2.1rem,
+    #6ba66e 4rem,
+    #453132 4rem,
+    #453132 4.1rem,
+    #6ba66e 4.1rem,
+    #6ba66e 6rem,
+    #453132 6rem,
+    #453132 6.1rem,
+    #6ba66e 6.1rem
+  );
+  display: flex;
+  height: 3.5rem;
+  width: 8rem;
+  border: 1px solid #453132;
+  position: relative;
+  top: 2.5rem;
+  left: 5rem;
+
+  .numberContainer {
+    margin: auto;
+  }
+}
+
+.currentPokemonIdScreen::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 224, 0.1) 0.1rem,
+      transparent 0.1rem
+    ),
+    linear-gradient(90deg, rgba(255, 255, 224, 0.1) 0.1rem, transparent 0.1rem);
+  background-size: 0.25rem 0.25rem;
+  background-blend-mode: multiply;
+}
+
+.controlPadContainer {
+  margin-left: auto;
+  margin-right: 3.25rem;
+  transform: translateY(-3rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 7rem;
+  height: 7rem;
+
+  .control {
+    background-color: #453132;
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 0
+    );
+    background-size: 0.25rem 0.25rem;
+    border-color: transparent;
+    color: transparent;
+    user-select: none;
+  }
+
+  .up {
+    grid-column: 2;
+    grid-row: 1;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border-right: 2px solid #000;
+  }
+
+  .right {
+    grid-column: 3;
+    grid-row: 2;
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+  }
+
+  .center {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .down {
+    grid-column: 2;
+    grid-row: 3;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+  }
+
+  .left {
+    grid-column: 1;
+    grid-row: 2;
+    border-bottom-left-radius: 0.75rem;
+    border-top-left-radius: 0.75rem;
+    border-bottom: 2px solid #000;
+  }
+}

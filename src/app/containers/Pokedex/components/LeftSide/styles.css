@@ -1,8 +1,9 @@
 .leftSideContainer {
-    background-color: #dc082e;
-    width: 25rem;
-    height: 40rem;
-    border-top-left-radius: 1.5rem;
-    border-bottom-left-radius: 1.5rem;
-    display: flex;
+  background-color: #dc082e;
+  width: 25rem;
+  height: 40rem;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }

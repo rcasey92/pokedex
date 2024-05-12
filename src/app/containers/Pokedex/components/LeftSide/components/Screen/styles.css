@@ -1,0 +1,35 @@
+.screenBorder {
+  position: relative;
+  width: 20rem;
+  height: 23rem;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 1rem;
+
+  .screen {
+    width: 16rem;
+    height: 16rem;
+    background-color: #453132;
+    margin: 2rem auto;
+    border-radius: 0.75rem;
+    border: 1px solid #000;
+  }
+
+  .doubleIndicators {
+    position: absolute;
+  }
+
+  .bottomIndicators {
+    transform: translateY(-1rem);
+  }
+}
+
+.screenBorder::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top: 3rem solid #dc082e;
+  border-left: 3rem solid transparent;
+  transform: rotate(180deg);
+}
