@@ -1,0 +1,11 @@
+.buttonContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0.25rem;
+  margin: 1rem auto;
+  background-color: blue;
+  height: 7rem;
+  grid-template-rows: 1fr 1fr;
+  width: 20rem;
+  position: inherit;
+}

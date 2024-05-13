@@ -1,0 +1,10 @@
+.displayScreen {
+  display: flex;
+  margin: 7rem auto 0 auto;
+  align-items: center;
+  height: 8.5rem;
+  width: 20rem;
+  background-color: #453132;
+  border-radius: 0.5rem;
+  position: relative;
+}

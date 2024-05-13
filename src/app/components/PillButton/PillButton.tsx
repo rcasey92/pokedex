@@ -4,8 +4,8 @@ import classNames from "classnames";
 import "./styles.css";
 
 interface PillButtonProps {
-  className: string;
-  label: string;
+  className?: string;
+  label?: string;
 }
 
 const PillButton: FC<PillButtonProps> = ({ className, label }) => {

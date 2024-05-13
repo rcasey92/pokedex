@@ -55,15 +55,31 @@ const Controls = () => {
       <div className="controlPadContainer">
         <button className="control up">Up</button>
         <button className="control right">Right</button>
-        <button className="control center" />
+        <span className="control center" />
         <button className="control down">Down</button>
         <button className="control left">Left</button>
       </div>
       <svg className="speakerDots bottomSpeakerDots">
         <circle fill="#000" cx={215} cy={4} r={3.5} />
-        <rect height={3} width={10} x={226} y={2.5} rx={1.5} ry={1.5} fill="#000"/>
+        <rect
+          height={3}
+          width={10}
+          x={226}
+          y={2.5}
+          rx={1.5}
+          ry={1.5}
+          fill="#000"
+        />
         <circle fill="#000" cx={244} cy={4} r={1.75} />
-        <rect height={3} width={10} x={252} y={2.5} rx={1.5} ry={1.5} fill="#000"/>
+        <rect
+          height={3}
+          width={10}
+          x={252}
+          y={2.5}
+          rx={1.5}
+          ry={1.5}
+          fill="#000"
+        />
       </svg>
     </section>
   );

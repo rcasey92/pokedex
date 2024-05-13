@@ -118,6 +118,12 @@
   .center {
     grid-column: 2;
     grid-row: 2;
+    background: radial-gradient(
+      circle at center,
+      #000 0%,
+      #000 12.5%,
+      #453132 20%
+    );
   }
 
   .down {
