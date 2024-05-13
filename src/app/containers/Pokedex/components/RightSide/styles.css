@@ -2,18 +2,19 @@
     position: relative;
     background-color: #dc082e;
     width: 25rem;
-    height: 36.25rem;
+    height: 38rem;
     border-bottom-right-radius: 1.5rem;
     border-left: 1px solid black;
+    clip-path: path('M 0 0 V 0 H 100 Q 110 0 155 65 Q 155 75 400 75 V 608 H 0');
 }
 
-.rightSideContainer::before {
+/* .rightSideContainer::before {
     content: "";
     position: relative;
     display: flex;
     background-color: indigo;
     height: 5rem;
     width: 25rem;
-    clip-path: path('M0,0 Q125,100 250,0 V500 H0 Z');
-
-}
+    border-top-right-radius: 25% 25%;
+    clip-path: path('M 0 0 V 0 H 100 Q 115 0 145 65 Q 145 70 400 70 V 376 H 0 V 0');
+} */
