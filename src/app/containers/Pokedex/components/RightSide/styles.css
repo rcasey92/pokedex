@@ -6,7 +6,46 @@
     border-bottom-right-radius: 1.5rem;
     border-left: 1px solid black;
     clip-path: path('M 0 0 V 0 H 100 Q 110 0 155 65 Q 155 75 400 75 V 608 H 0');
+    /* box-shadow: inset 0 0 10px 0.75rem #000; */
 }
+.rightSideContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #dc082e;
+    clip-path: path('M 0 0 V 0 H 100 Q 110 0 155 65 Q 155 75 400 75 V 608 H 0');
+}
+
+.rightSideContainer::after {
+    content: "";
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    background-color: transparent;
+    clip-path: path('M 0 0 V 0 H 100 Q 110 0 155 65 Q 155 75 400 75 V 608 H 0');
+    box-shadow: inset 0 0 10px #000;
+}
+/* 
+.rightSideContainer::before {
+    content: "";
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    background-color: #dc082e;
+    clip-path: path('M 0 0 V 0 H 100 Q 110 0 155 65 Q 155 75 400 75 V 608 H 0');
+    box-shadow: inset 0 0 10px #000;
+} */
+
+/* .largeScreen {
+
+} */
 
 /* .rightSideContainer::before {
     content: "";
