@@ -5,7 +5,7 @@ import "./styles.css";
 const SCANNER_Y = 15;
 const SCANNER_X = -22.5;
 
-const INDICATOR_Y = 6;
+const INDICATOR_Y = 10;
 
 const Scanner = () => {
   return (

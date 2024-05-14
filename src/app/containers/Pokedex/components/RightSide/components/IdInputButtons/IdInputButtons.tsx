@@ -16,7 +16,7 @@ const IdInputButtons: React.FC<IdInputButtonsProps> = (props) => {
   return (
     <div className="buttonContainer">
       {inputValues.map((value: number) => (
-        <button key={`input_button_${value}`}>{value}</button>
+        <button className="inputButton" key={`input_button_${value}`}>{value}</button>
       ))}
     </div>
   );

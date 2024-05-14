@@ -9,6 +9,7 @@ const Pokedex = () => {
     const { data, error, isLoading } = useGetPokemonByNameQuery('bulbasaur')
     return <div className={'pokedexContainer'}>
         <LeftSide />
+        <div className="hinge" />
         <RightSide />
     </div>;
 };

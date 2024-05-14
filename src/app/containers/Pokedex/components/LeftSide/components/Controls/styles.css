@@ -27,7 +27,7 @@
 }
 
 .bottomSpeakerDots {
-  transform: translate(3rem, -3rem);
+  transform: translate(3rem, -3.5rem)
 }
 
 .currentPokemonIdScreen {
@@ -78,7 +78,7 @@
 .controlPadContainer {
   margin-left: auto;
   margin-right: 3.25rem;
-  transform: translateY(-3.25rem);
+  transform: translateY(-4rem);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -118,12 +118,15 @@
   .center {
     grid-column: 2;
     grid-row: 2;
-    background: radial-gradient(
-      circle at center,
-      #000 0%,
-      #000 12.5%,
-      #453132 20%
+    background-image: radial-gradient(
+      circle at 3px 3px,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 0
     );
+
+    .centerDot {
+      position: absolute;
+    }
   }
 
   .down {

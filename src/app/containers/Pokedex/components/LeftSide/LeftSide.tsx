@@ -6,9 +6,9 @@ import "./styles.css";
 const LeftSide: FC<any> = () => {
   return (
     <section className={"leftSideContainer"}>
-      <Scanner />
-      <Screen />
-      <Controls />
+        <Scanner />
+        <Screen />
+        <Controls />
     </section>
   );
 };

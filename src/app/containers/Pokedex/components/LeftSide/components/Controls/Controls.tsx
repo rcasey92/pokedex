@@ -55,7 +55,11 @@ const Controls = () => {
       <div className="controlPadContainer">
         <button className="control up">Up</button>
         <button className="control right">Right</button>
-        <span className="control center" />
+        <span className="control center">
+            <svg className="centerDot">
+                <circle cx={19} cy={19} r={4}/>
+            </svg>
+        </span>
         <button className="control down">Down</button>
         <button className="control left">Left</button>
       </div>
