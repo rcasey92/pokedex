@@ -1,10 +1,13 @@
 import React, { FC } from "react";
 import { TextDisplayScreen, IdInputButtons } from "./components";
 import PillButton from "../../../../components/PillButton";
+import usePokemonById from '../../redux/hooks/usePokemonById'
 
 import "./styles.css";
 
 const RightSide: FC<any> = () => {
+  const pokemon = usePokemonById(3);
+  console.log(pokemon);
   const test = 15
   const testArray = test.toString().padStart(4, '0').split("")
   return (

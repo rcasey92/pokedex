@@ -1,8 +1,13 @@
 import React from "react";
+import { useGetPokemonByNameQuery } from '../../../../redux/api'
+import { pokemonData } from '../../../../redux/selectors'
 
 import "./styles.css";
 
 const Screen = () => {
+  const { data, error, isLoading } = useGetPokemonByNameQuery(3)
+  const sprite_url: string = data?.sprites?.front_default
+  console.log(pokemonData)
   return (
     <section className="screenBorder">
       <svg className="doubleIndicators">
@@ -26,7 +31,9 @@ const Screen = () => {
           <circle fill="#fff" cx={142} cy={12.5} r={2.5} />
         </g>
       </svg>
-      <div className="screen" />
+      <div className="screen">
+        <img src={sprite_url}/>
+      </div>
       <svg className="bottomIndicators">
         <g>
           <circle filter="url(#shadow)" fill="#fb5145" cx={75} cy={15} r={15} />
