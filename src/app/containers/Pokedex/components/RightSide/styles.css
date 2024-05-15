@@ -26,15 +26,15 @@
 }
 
 .actionButtons {
-    display: inherit;
-    justify-content: space-between;
-    position: relative;
-    margin: 0 2.5rem auto auto;
-    width: 5.5rem;
+  display: inherit;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 2.5rem auto auto;
+  width: 5.5rem;
 
-    .buttonBackground {
-        background-color: #4c4c4c;
-    }
+  .buttonBackground {
+    background-color: #4c4c4c;
+  }
 }
 
 .rightSideContainer::after {
@@ -69,6 +69,17 @@
   width: 8.5rem;
   background-color: #453132;
   border-radius: 0.75rem;
+
+  .loadingText {
+    text-align: center;
+    padding-top: 1.15rem;
+  }
+
+  .imageContainer {
+    display: flex;
+    margin: 6px auto;
+    align-items: center;
+  }
 }
 
 .indicatorLight {
@@ -77,43 +88,51 @@
 }
 
 .inputDisplay {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto 0 2.5rem;
-    height: 4rem;
-    width: 6rem;
-    border-radius: 0.25rem;
-    border: 1px solid #000;
-    background: linear-gradient(
-        to right,
-        #6ba66e 0,
-        #6ba66e 1.5rem,
-        #000 1.5rem,
-        #000 1.6rem,
-        #6ba66e 1.6rem,
-        #6ba66e 3rem,
-        #000 3rem,
-        #000 3.1rem,
-        #6ba66e 3.1rem,
-        #6ba66e 4.5rem,
-        #000 4.5rem,
-        #000 4.6rem,
-        #6ba66e 4.6rem,
-        #6ba66e 6rem
-    );
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 0 2.5rem;
+  height: 4rem;
+  width: 6rem;
+  border-radius: 0.25rem;
+  border: 1px solid #000;
+  background: linear-gradient(
+    to right,
+    #6ba66e 0,
+    #6ba66e 1.5rem,
+    #000 1.5rem,
+    #000 1.6rem,
+    #6ba66e 1.6rem,
+    #6ba66e 3rem,
+    #000 3rem,
+    #000 3.1rem,
+    #6ba66e 3.1rem,
+    #6ba66e 4.5rem,
+    #000 4.5rem,
+    #000 4.6rem,
+    #6ba66e 4.6rem,
+    #6ba66e 6rem
+  );
 }
 
 .inputDisplay::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(0deg, rgba(255, 255, 224, 0.1) 0.1rem, transparent 0.1rem), linear-gradient(90deg, rgba(255, 255, 224, 0.1) 0.1rem, transparent 0.1rem);
-    background-size: 0.25rem 0.25rem;
-    background-blend-mode: multiply;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 224, 0.1) 0.1rem,
+      transparent 0.1rem
+    ),
+    linear-gradient(90deg, rgba(255, 255, 224, 0.1) 0.1rem, transparent 0.1rem);
+  background-size: 0.25rem 0.25rem;
+  background-blend-mode: multiply;
 }
 
 .inputCell {
-    margin: auto;
+  margin: auto;
+  color: black;
+  font-family: "Courier New", monospace;
+  font-size: 1.25rem;
 }

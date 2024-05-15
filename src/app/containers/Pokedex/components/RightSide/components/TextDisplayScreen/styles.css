@@ -7,4 +7,12 @@
   background-color: #453132;
   border-radius: 0.5rem;
   position: relative;
+
+  p {
+    position: relative;
+    display: flex;
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+    text-align: center;
+  }
 }

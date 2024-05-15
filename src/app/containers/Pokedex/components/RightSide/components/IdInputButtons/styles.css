@@ -8,6 +8,7 @@
   grid-template-rows: 1fr 1fr;
   width: 20rem;
   position: inherit;
+  z-index: 2;
 }
 
 .inputButton {
@@ -19,14 +20,14 @@
   border-bottom: 1px solid #000;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  font-family: "Courier New", monospace;
+  font-size: 1.15rem;
+  color: black;
+  cursor: pointer;
 }
 
-.inputButton::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), transparent);
+.buttonClicked {
+  border-right: none;
+  border-bottom: none;
+  box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2);
 }

@@ -27,7 +27,7 @@
 }
 
 .bottomSpeakerDots {
-  transform: translate(3rem, -3.5rem)
+  transform: translate(3rem, -3.5rem);
 }
 
 .currentPokemonIdScreen {
@@ -54,9 +54,13 @@
   position: relative;
   top: 2.5rem;
   left: 5rem;
+  border-radius: 0.75rem;
 
   .numberContainer {
     margin: auto;
+    color: black;
+    font-size: 1.5rem;
+    font-family: "Courier New", monospace;
   }
 }
 
@@ -72,6 +76,7 @@
     ),
     linear-gradient(90deg, rgba(255, 255, 224, 0.1) 0.1rem, transparent 0.1rem);
   background-size: 0.25rem 0.25rem;
+  border-radius: 0.75rem;
   background-blend-mode: multiply;
 }
 

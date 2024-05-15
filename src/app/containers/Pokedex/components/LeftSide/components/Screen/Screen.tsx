@@ -1,19 +1,22 @@
 import React from "react";
-import { useGetPokemonByNameQuery } from '../../../../redux/api'
-import { pokemonData } from '../../../../redux/selectors'
-
+import { useGetPokemonByNameQuery } from "../../../../redux/api";
+import { useAppSelector } from "@/redux/hooks";
+import { selectId } from "../../../../redux/pokemonState";
 import "./styles.css";
 
 const Screen = () => {
-  const { data, error, isLoading } = useGetPokemonByNameQuery(3)
-  const sprite_url: string = data?.sprites?.front_default
-  console.log(pokemonData)
+  const currentId: string = useAppSelector(selectId);
+  const sanitizedId: string = currentId.replace(/^0+/, "");
+  const { data, error, isLoading } = useGetPokemonByNameQuery(sanitizedId);
+  // temporary type assertion to avoid typescript error(needs a real interface)
+  const sprite_url: string = (data as any)?.sprites?.front_default;
+
   return (
     <section className="screenBorder">
       <svg className="doubleIndicators">
         <defs>
           <filter id="shadow" x="-40%" y="-40%" width="200%" height="200%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="" />
+            <feGaussianBlur in="SourceAlpha" stdDeviation="0.25" />
             <feOffset dx="2" dy="2" result="offsetblur" />
             <feComponentTransfer>
               <feFuncA type="linear" slope="0.5" />
@@ -32,7 +35,22 @@ const Screen = () => {
         </g>
       </svg>
       <div className="screen">
-        <img src={sprite_url}/>
+        {(currentId === "0" && !isLoading) || error ? (
+          <div
+            aria-label="Welcome to your pokedex! Please enter a valid pokemon id with the input keys to get started."
+            className="introductionText"
+          >
+            Welcome to your pokedex!
+            <br />
+            <br />
+            Please enter a valid pokemon id to get started.
+          </div>
+        ) : isLoading ? (
+          <div className="introductionText">Loading...</div>
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img className="spriteImage" alt="${data.name}" src={sprite_url} />
+        )}
       </div>
       <svg className="bottomIndicators">
         <g>

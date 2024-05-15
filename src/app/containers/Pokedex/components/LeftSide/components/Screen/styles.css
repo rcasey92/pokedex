@@ -13,6 +13,19 @@
     margin: 2rem auto;
     border-radius: 0.75rem;
     border: 1px solid #000;
+
+    .spriteImage {
+      height: 100%;
+      width: 100%;
+    }
+
+    .introductionText {
+      text-align: center;
+      vertical-align: middle;
+      padding-top: 6rem;
+      margin: 0 0.25rem;
+      font-family: "Courier New", monospace;
+    }
   }
 
   .doubleIndicators {
