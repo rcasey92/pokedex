@@ -1,8 +1,13 @@
 import React from "react";
 
 import { useGetPokemonByNameQuery } from "../../../../redux/api";
-import { useAppSelector } from "@/redux/hooks";
-import { selectId } from "../../../../redux/pokemonState";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import {
+  selectId,   
+  moveFocusToTheRight,
+  moveFocusToTheLeft,
+  updateIdByControl
+} from "../../../../redux/pokemonState";
 
 import PillButton from "../../../../../../components/PillButton";
 
@@ -11,6 +16,7 @@ import "./styles.css";
 const Controls = () => {
   const currentId: string = useAppSelector(selectId);
   const { data, error, isLoading } = useGetPokemonByNameQuery(currentId);
+  const dispatch = useAppDispatch()
 
   const displayArray =
     currentId !== ""
@@ -66,15 +72,22 @@ const Controls = () => {
       </div>
 
       <div className="controlPadContainer">
-        <button className="control up">Up</button>
-        <button className="control right">Right</button>
+        <button onClick={() => dispatch(updateIdByControl({ payload: 'ADD' }))} className="control up">Up</button>
+        <button onClick={() => dispatch(moveFocusToTheRight())}className="control right">Right</button>
         <span className="control center">
           <svg className="centerDot">
             <circle cx={19} cy={19} r={4} />
           </svg>
         </span>
-        <button className="control down">Down</button>
-        <button className="control left">Left</button>
+        <button onClick={() => dispatch(updateIdByControl({ payload: 'SUBTRACT' }))}className="control down">Down</button>
+        <button 
+          onClick={() => () => {
+            console.log('clicked')
+            dispatch(moveFocusToTheLeft())}
+          }
+          className="control left">
+            Left
+          </button>
       </div>
       <svg className="speakerDots bottomSpeakerDots">
         <circle fill="#000" cx={215} cy={4} r={3.5} />

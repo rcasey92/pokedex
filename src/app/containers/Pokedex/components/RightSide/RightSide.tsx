@@ -3,16 +3,19 @@ import { TextDisplayScreen, IdInputButtons } from "./components";
 import PillButton from "../../../../components/PillButton";
 import { useGetPokemonByNameQuery } from "../../redux/api";
 import Image from "next/image";
-import { selectId, setId, resetId } from "../../redux/pokemonState";
+import { selectId, selectHighlightedIndex, setId, resetId } from "../../redux/pokemonState";
+import classNames from "classnames";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import pokeball from "../../../../../../public/pokeball-icon.png";
 
 import "./styles.css";
 
 const RightSide: FC<any> = () => {
-  const [inputId, setInputId] = useState<string>("");
+  const [inputId, setInputId] = useState<string>("0");
   const dispatch = useAppDispatch();
   const currentId = useAppSelector(selectId);
+  const highlightedIndex = useAppSelector(selectHighlightedIndex)
+
 
   const prevId = Number(currentId) - 1;
   const nextId = Number(currentId) + 1;
@@ -64,7 +67,9 @@ const RightSide: FC<any> = () => {
       </div>
       <div className="inputDisplay">
         {displayArray.map((value: string | number, index: number) => (
-          <span key={`value_display_${value}_${index}`} className="inputCell">
+          <span key={`value_display_${value}_${index}`} className={classNames("inputCell", {
+            hasFocus: highlightedIndex === index
+          })}>
             {value.toString()}
           </span>
         ))}

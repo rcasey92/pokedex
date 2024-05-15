@@ -11,6 +11,10 @@ const Screen = () => {
   // temporary type assertion to avoid typescript error(needs a real interface)
   const sprite_url: string = (data as any)?.sprites?.front_default;
 
+  const capitalizeFirstLetter = (str: string) => {
+    return str?.charAt(0).toUpperCase() + str?.slice(1).toLowerCase();
+  }
+
   return (
     <section className="screenBorder">
       <svg className="doubleIndicators">
@@ -48,8 +52,11 @@ const Screen = () => {
         ) : isLoading ? (
           <div className="introductionText">Loading...</div>
         ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img className="spriteImage" alt="${data.name}" src={sprite_url} />
+          <>
+           <h2 className="">{`#${sanitizedId}: ${capitalizeFirstLetter(data?.name)}`}</h2>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="spriteImage" alt="${data.name}" src={sprite_url} />
+          </>
         )}
       </div>
       <svg className="bottomIndicators">

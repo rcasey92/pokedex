@@ -25,6 +25,15 @@
       padding-top: 6rem;
       margin: 0 0.25rem;
       font-family: "Courier New", monospace;
+      color: #f9f9f9;
+    }
+
+    h2 {
+      color: #f9f9f9;
+      font-size: 0.75rem;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      padding-top: 0.5rem;
     }
   }
 

@@ -83,7 +83,7 @@
 .controlPadContainer {
   margin-left: auto;
   margin-right: 3.25rem;
-  transform: translateY(-4rem);
+  /* transform: translateY(-4rem); */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -98,9 +98,10 @@
       transparent 0
     );
     background-size: 0.25rem 0.25rem;
-    border-color: transparent;
-    color: transparent;
-    user-select: none;
+    border: none;
+    text-indent: -9999px;
+    cursor: pointer;
+    z-index: 5;
   }
 
   .up {
