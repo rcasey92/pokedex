@@ -33,6 +33,7 @@ const IdInputButtons: React.FC<IdInputButtonsProps> = ({
             buttonClicked: valueClicked !== value,
           })}
           key={`input_button_${value}`}
+          aria-label={`input button ${value}`}
         >
           {value}
         </button>

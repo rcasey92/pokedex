@@ -1,16 +1,27 @@
 .pokedexContainer {
-    display: flex;
-    align-items:flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
 .hinge {
-    width: 2rem;
-    height: 40rem;
-    background: linear-gradient(#dc082e 0, #dc082e 4rem, #000 4rem, #000 4.1rem, #dc082e 4.1rem, #dc082e 36rem, #000 36rem, #000 36.1rem, #dc082e 36.1rem, #dc082e 40rem);
-    display: flex;
-    position: relative;
-    border-left: 1px solid #000;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    border-right: none;
+  width: 2rem;
+  height: 40rem;
+  background: linear-gradient(
+    var(--background-color-default) 0,
+    var(--background-color-default) 4rem,
+    var(--border-color) 4rem,
+    var(--border-color) 4.1rem,
+    var(--background-color-default) 4.1rem,
+    var(--background-color-default) 36rem,
+    var(--border-color) 36rem,
+    var(--border-color) 36.1rem,
+    var(--background-color-default) 36.1rem,
+    var(--background-color-default) 40rem
+  );
+  display: flex;
+  position: relative;
+  border-left: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-right: none;
 }

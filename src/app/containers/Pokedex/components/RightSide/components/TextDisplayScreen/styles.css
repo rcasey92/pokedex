@@ -4,16 +4,16 @@
   align-items: center;
   height: 12rem;
   width: 20rem;
-  background-color: #453132;
+  background-color: var(--screen-color);
   border-radius: 0.5rem;
   position: relative;
 
   p {
     position: relative;
     display: flex;
-    font-family: "Courier New", monospace;
+    font-family: var(--base-font-family);
     font-size: 0.85rem;
     text-align: center;
-    color: #f9f9f9;
+    color: var(--screen-text-color);
   }
 }

@@ -1,22 +1,13 @@
 import React from "react";
 
-import { useGetPokemonByNameQuery } from "../../../../redux/api";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import {
-  selectId,   
-  moveFocusToTheRight,
-  moveFocusToTheLeft,
-  updateIdByControl
-} from "../../../../redux/pokemonState";
-
-import PillButton from "../../../../../../components/PillButton";
+import { useAppSelector } from "@/redux/hooks";
+import { selectId } from "@/app/containers/Pokedex/redux/pokemonState";
+import { PillButton, ControlPad, CircularShadow } from "@/app/components";
 
 import "./styles.css";
 
 const Controls = () => {
   const currentId: string = useAppSelector(selectId);
-  const { data, error, isLoading } = useGetPokemonByNameQuery(currentId);
-  const dispatch = useAppDispatch()
 
   const displayArray =
     currentId !== ""
@@ -26,26 +17,11 @@ const Controls = () => {
   return (
     <section className="controlGrid">
       <div>
-        <svg className="controlButton">
-          <defs>
-            <filter
-              id="control-shadow"
-              x="-40%"
-              y="-40%"
-              width="200%"
-              height="200%"
-            >
-              <feGaussianBlur in="SourceAlpha" stdDeviation="0.25" />
-              <feOffset dx="1" dy="1" result="offsetblur" />
-              <feComponentTransfer>
-                <feFuncA type="linear" slope="0.75" />
-              </feComponentTransfer>
-              <feMerge>
-                <feMergeNode />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
+        <CircularShadow
+          className="controlButton"
+          id="control-shadow"
+          label="decorative indicator lights"
+        >
           <circle
             filter="url(#control-shadow)"
             fill="#505050"
@@ -53,43 +29,32 @@ const Controls = () => {
             cy={32.5}
             r={17}
           />
-        </svg>
+        </CircularShadow>
         <div className="buttonGroup">
-          <PillButton label={"blah"} className="redButton" />
-          <PillButton label={"blah"} className="blueButton" />
+          <PillButton className="redButton" tabIndex={-1} />
+          <PillButton className="blueButton" tabIndex={-1} />
         </div>
       </div>
-      <svg className="speakerDots">
+      <svg className="speakerDots" aria-label="speaker dots">
         <circle fill="#000" cx={35} cy={47.5} r={3.5} />
         <circle fill="#000" cx={60} cy={47.5} r={3.5} />
       </svg>
-      <div className="currentPokemonIdScreen">
+      <div
+        className="currentPokemonIdScreen"
+        aria-label={`the current id is ${currentId}`}
+      >
         {displayArray.map((value: string | number, index: number) => (
-          <span key={`display_digit_${index}`} className="numberContainer">
+          <span
+            aria-hidden
+            key={`display_digit_${index}`}
+            className="numberContainer"
+          >
             {value.toString()}
           </span>
         ))}
       </div>
-
-      <div className="controlPadContainer">
-        <button onClick={() => dispatch(updateIdByControl({ payload: 'ADD' }))} className="control up">Up</button>
-        <button onClick={() => dispatch(moveFocusToTheRight())}className="control right">Right</button>
-        <span className="control center">
-          <svg className="centerDot">
-            <circle cx={19} cy={19} r={4} />
-          </svg>
-        </span>
-        <button onClick={() => dispatch(updateIdByControl({ payload: 'SUBTRACT' }))}className="control down">Down</button>
-        <button 
-          onClick={() => () => {
-            console.log('clicked')
-            dispatch(moveFocusToTheLeft())}
-          }
-          className="control left">
-            Left
-          </button>
-      </div>
-      <svg className="speakerDots bottomSpeakerDots">
+      <ControlPad />
+      <svg className="speakerDots bottomSpeakerDots" aria-label="speaker dots">
         <circle fill="#000" cx={215} cy={4} r={3.5} />
         <rect
           height={3}

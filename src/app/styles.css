@@ -1,0 +1,15 @@
+.appHeading {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  font-family: var(--base-font-family);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+  justify-content: center;
+}

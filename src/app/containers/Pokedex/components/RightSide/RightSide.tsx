@@ -1,12 +1,16 @@
 import React, { FC, useState, useEffect } from "react";
 import { TextDisplayScreen, IdInputButtons } from "./components";
 import PillButton from "../../../../components/PillButton";
-import { useGetPokemonByNameQuery } from "../../redux/api";
-import Image from "next/image";
-import { selectId, selectHighlightedIndex, setId, resetId } from "../../redux/pokemonState";
+import CircularShadow from "../../../../components/CircularShadow";
+import PreviewScreen from "./components/PreviewScreen";
+import {
+  selectId,
+  selectHighlightedIndex,
+  setId,
+  resetId,
+} from "../../redux/pokemonState";
 import classNames from "classnames";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import pokeball from "../../../../../../public/pokeball-icon.png";
 
 import "./styles.css";
 
@@ -14,23 +18,7 @@ const RightSide: FC<any> = () => {
   const [inputId, setInputId] = useState<string>("0");
   const dispatch = useAppDispatch();
   const currentId = useAppSelector(selectId);
-  const highlightedIndex = useAppSelector(selectHighlightedIndex)
-
-
-  const prevId = Number(currentId) - 1;
-  const nextId = Number(currentId) + 1;
-
-  const { data: previousPokemonData, isLoading: prevLoading } =
-    useGetPokemonByNameQuery(prevId.toString());
-  const { data: nextPokemonData, isLoading: nextLoading } =
-    useGetPokemonByNameQuery(nextId.toString());
-
-  const setSprite = (data: any) => {
-    if (data) {
-      return data.sprites.front_default;
-    }
-    return null;
-  };
+  const highlightedIndex = useAppSelector(selectHighlightedIndex);
 
   useEffect(() => {
     if (currentId === "0") {
@@ -67,74 +55,28 @@ const RightSide: FC<any> = () => {
       </div>
       <div className="inputDisplay">
         {displayArray.map((value: string | number, index: number) => (
-          <span key={`value_display_${value}_${index}`} className={classNames("inputCell", {
-            hasFocus: highlightedIndex === index
-          })}>
+          <span
+            key={`value_display_${value}_${index}`}
+            className={classNames("inputCell", {
+              hasFocus: highlightedIndex === index,
+            })}
+          >
             {value.toString()}
           </span>
         ))}
       </div>
-      <svg className="indicatorLight">
-        <defs>
-          <filter
-            id="indicator-shadow"
-            x="-40%"
-            y="-40%"
-            width="200%"
-            height="200%"
-          >
-            <feGaussianBlur in="SourceAlpha" stdDeviation="0.25" />
-            <feOffset dx="1" dy="1" result="offsetblur" />
-            <feComponentTransfer>
-              <feFuncA type="linear" slope="0.75" />
-            </feComponentTransfer>
-            <feMerge>
-              <feMergeNode />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <g filter="url(#indicator-shadow)">
-          <circle cx={337.5} cy={17} r={15.75} fill="#fed363" />
-          <circle cx={337.5} cy={17} r={15} fill="#f3f750" />
-          <circle cx={332} cy={10} r={3} fill="#fff" />
-        </g>
-      </svg>
-      <div className="typeContainer">
-        <div className="typeScreen">
-          {prevLoading ? (
-            <div className="loadingText">Loading...</div>
-          ) : (
-            <Image
-              height={48}
-              width={48}
-              className="imageContainer"
-              alt={previousPokemonData?.name}
-              src={
-                currentId === "0" || prevId === 0
-                  ? pokeball
-                  : setSprite(previousPokemonData)
-              }
-            />
-          )}
-        </div>
-        <div className="typeScreen">
-          {nextLoading ? (
-            <div className="loadingText">Loading...</div>
-          ) : (
-            <Image
-              height={48}
-              width={48}
-              className="imageContainer"
-              alt={nextPokemonData?.name}
-              src={
-                currentId === "0" || nextId === 0
-                  ? pokeball
-                  : setSprite(nextPokemonData)
-              }
-            />
-          )}
-        </div>
+      <CircularShadow
+        className="indicatorLight"
+        id="indicator-shadow"
+        label="decorative indicator light"
+      >
+        <circle cx={337.5} cy={17} r={15.75} fill="#fed363" />
+        <circle cx={337.5} cy={17} r={15} fill="#f3f750" />
+        <circle cx={332} cy={10} r={3} fill="#fff" />
+      </CircularShadow>
+      <div className="previewContainer">
+        <PreviewScreen id={Number(currentId)} previewType="previous" />
+        <PreviewScreen id={Number(currentId)} previewType="next" />
       </div>
     </section>
   );

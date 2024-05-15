@@ -1,0 +1,17 @@
+.typeScreen {
+  height: 3.75rem;
+  width: 8.5rem;
+  background-color: var(--screen-color);
+  border-radius: 0.75rem;
+
+  .loadingText {
+    text-align: center;
+    padding-top: 1.15rem;
+  }
+
+  .imageContainer {
+    display: flex;
+    margin: 6px auto;
+    align-items: center;
+  }
+}

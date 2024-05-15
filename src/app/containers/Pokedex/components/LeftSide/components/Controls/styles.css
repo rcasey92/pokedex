@@ -15,10 +15,12 @@
   .redButton {
     background-color: #b8323a;
     margin-right: 0.75rem;
+    pointer-events: none;
   }
 
   .blueButton {
     background-color: #609ed7;
+    pointer-events: none;
   }
 }
 
@@ -33,24 +35,24 @@
 .currentPokemonIdScreen {
   background: linear-gradient(
     to right,
-    #6ba66e 0%,
-    #6ba66e 2rem,
-    #453132 2rem,
-    #453132 2.1rem,
-    #6ba66e 2.1rem,
-    #6ba66e 4rem,
-    #453132 4rem,
-    #453132 4.1rem,
-    #6ba66e 4.1rem,
-    #6ba66e 6rem,
-    #453132 6rem,
-    #453132 6.1rem,
-    #6ba66e 6.1rem
+    var(--number-display-background-color) 0%,
+    var(--number-display-background-color) 2rem,
+    var(--screen-color) 2rem,
+    var(--screen-color) 2.1rem,
+    var(--number-display-background-color) 2.1rem,
+    var(--number-display-background-color) 4rem,
+    var(--screen-color) 4rem,
+    var(--screen-color) 4.1rem,
+    var(--number-display-background-color) 4.1rem,
+    var(--number-display-background-color) 6rem,
+    var(--screen-color) 6rem,
+    var(--screen-color) 6.1rem,
+    var(--number-display-background-color) 6.1rem
   );
   display: flex;
   height: 3.5rem;
   width: 8rem;
-  border: 1px solid #453132;
+  border: 1px solid var(--screen-color);
   position: relative;
   top: 2.5rem;
   left: 5rem;
@@ -58,9 +60,12 @@
 
   .numberContainer {
     margin: auto;
-    color: black;
+    color: var(--border-color);
     font-size: 1.5rem;
-    font-family: "Courier New", monospace;
+    font-family: var(--base-font-family);
+    font-weight: 600;
+    padding-top: 0.15rem;
+    padding-left: 0.25rem;
   }
 }
 
@@ -71,84 +76,11 @@
   width: 100%;
   background: linear-gradient(
       0deg,
-      rgba(255, 255, 224, 0.1) 0.1rem,
+      var(--default-gradient-shadow),
       transparent 0.1rem
     ),
-    linear-gradient(90deg, rgba(255, 255, 224, 0.1) 0.1rem, transparent 0.1rem);
+    linear-gradient(90deg, var(--default-gradient-shadow), transparent 0.1rem);
   background-size: 0.25rem 0.25rem;
   border-radius: 0.75rem;
   background-blend-mode: multiply;
-}
-
-.controlPadContainer {
-  margin-left: auto;
-  margin-right: 3.25rem;
-  /* transform: translateY(-4rem); */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  width: 7rem;
-  height: 7rem;
-
-  .control {
-    background-color: #453132;
-    background-image: radial-gradient(
-      circle at 2px 2px,
-      rgba(0, 0, 0, 0.1) 1px,
-      transparent 0
-    );
-    background-size: 0.25rem 0.25rem;
-    border: none;
-    text-indent: -9999px;
-    cursor: pointer;
-    z-index: 5;
-  }
-
-  .up {
-    grid-column: 2;
-    grid-row: 1;
-    border-top-left-radius: 0.75rem;
-    border-top-right-radius: 0.75rem;
-    border-right: 2px solid #000;
-  }
-
-  .right {
-    grid-column: 3;
-    grid-row: 2;
-    border-top-right-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    border-bottom: 2px solid #000;
-    border-right: 2px solid #000;
-  }
-
-  .center {
-    grid-column: 2;
-    grid-row: 2;
-    background-image: radial-gradient(
-      circle at 3px 3px,
-      rgba(0, 0, 0, 0.1) 1px,
-      transparent 0
-    );
-
-    .centerDot {
-      position: absolute;
-    }
-  }
-
-  .down {
-    grid-column: 2;
-    grid-row: 3;
-    border-bottom-left-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    border-right: 2px solid #000;
-    border-bottom: 2px solid #000;
-  }
-
-  .left {
-    grid-column: 1;
-    grid-row: 2;
-    border-bottom-left-radius: 0.75rem;
-    border-top-left-radius: 0.75rem;
-    border-bottom: 2px solid #000;
-  }
 }

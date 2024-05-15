@@ -9,10 +9,10 @@
   .screen {
     width: 16rem;
     height: 16rem;
-    background-color: #453132;
+    background-color: var(--screen-color);
     margin: 2rem auto;
     border-radius: 0.75rem;
-    border: 1px solid #000;
+    border: 1px solid var(--border-color);
 
     .spriteImage {
       height: 100%;
@@ -24,14 +24,14 @@
       vertical-align: middle;
       padding-top: 6rem;
       margin: 0 0.25rem;
-      font-family: "Courier New", monospace;
-      color: #f9f9f9;
+      font-family: var(--base-font-family);
+      color: var(--screen-text-color);
     }
 
     h2 {
-      color: #f9f9f9;
+      color: var(--screen-text-color);
       font-size: 0.75rem;
-      font-family: "Courier New", monospace;
+      font-family: var(--base-font-family);
       text-align: center;
       padding-top: 0.5rem;
     }
@@ -51,7 +51,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  border-top: 3rem solid #dc082e;
+  border-top: 3rem solid var(--background-color-default);
   border-left: 3rem solid transparent;
   transform: rotate(180deg);
 }

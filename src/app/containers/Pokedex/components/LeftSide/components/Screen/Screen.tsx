@@ -1,7 +1,9 @@
 import React from "react";
-import { useGetPokemonByNameQuery } from "../../../../redux/api";
+import { useGetPokemonByNameQuery } from "@/app/containers/Pokedex/redux/api";
 import { useAppSelector } from "@/redux/hooks";
-import { selectId } from "../../../../redux/pokemonState";
+import { selectId } from "@/app/containers/Pokedex/redux/pokemonState";
+import Image from "next/image";
+import CircularShadow from "@/app/components/CircularShadow";
 import "./styles.css";
 
 const Screen = () => {
@@ -13,34 +15,23 @@ const Screen = () => {
 
   const capitalizeFirstLetter = (str: string) => {
     return str?.charAt(0).toUpperCase() + str?.slice(1).toLowerCase();
-  }
+  };
 
   return (
     <section className="screenBorder">
-      <svg className="doubleIndicators">
-        <defs>
-          <filter id="shadow" x="-40%" y="-40%" width="200%" height="200%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="0.25" />
-            <feOffset dx="2" dy="2" result="offsetblur" />
-            <feComponentTransfer>
-              <feFuncA type="linear" slope="0.5" />
-            </feComponentTransfer>
-            <feMerge>
-              <feMergeNode />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <g filter="url(#shadow)">
-          <circle fill="#fb5145" cx={180} cy={15} r={10} />
-          <circle fill="#fff" cx={177} cy={12.5} r={2.5} />
-          <circle fill="#fb5145" cx={145} cy={15} r={10} />
-          <circle fill="#fff" cx={142} cy={12.5} r={2.5} />
-        </g>
-      </svg>
+      <CircularShadow
+        className="doubleIndicators"
+        id="shadow"
+        label="decorative indicator lights"
+      >
+        <circle fill="#fb5145" cx={180} cy={15} r={10} />
+        <circle fill="#fff" cx={177} cy={12.5} r={2.5} />
+        <circle fill="#fb5145" cx={145} cy={15} r={10} />
+        <circle fill="#fff" cx={142} cy={12.5} r={2.5} />
+      </CircularShadow>
       <div className="screen">
         {(currentId === "0" && !isLoading) || error ? (
-          <div
+          <p
             aria-label="Welcome to your pokedex! Please enter a valid pokemon id with the input keys to get started."
             className="introductionText"
           >
@@ -48,18 +39,25 @@ const Screen = () => {
             <br />
             <br />
             Please enter a valid pokemon id to get started.
-          </div>
+          </p>
         ) : isLoading ? (
-          <div className="introductionText">Loading...</div>
+          <p className="introductionText">Loading...</p>
         ) : (
           <>
-           <h2 className="">{`#${sanitizedId}: ${capitalizeFirstLetter(data?.name)}`}</h2>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="spriteImage" alt="${data.name}" src={sprite_url} />
+            <h2 className="">{`#${sanitizedId}: ${capitalizeFirstLetter(
+              data?.name
+            )}`}</h2>
+            <Image
+              height={256}
+              width={256}
+              className="spriteImage"
+              alt="${data.name}"
+              src={sprite_url}
+            />
           </>
         )}
       </div>
-      <svg className="bottomIndicators">
+      <svg className="bottomIndicators" aria-label="small decorative elements">
         <g>
           <circle filter="url(#shadow)" fill="#fb5145" cx={75} cy={15} r={15} />
           <circle fill="#fff" cx={70} cy={11.5} r={3.25} />

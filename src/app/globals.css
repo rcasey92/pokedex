@@ -34,6 +34,15 @@
     #00000080
   );
 
+  --base-font-family: "Courier New", monospace;
+  --background-color-default: #dc082e;
+  --number-display-background-color: #6ba66e;
+  --border-color: #000;
+  --screen-color: #453132;
+  --default-gradient-shadow: rgba(255, 255, 224, 0.1) 0.1rem;
+  --screen-text-color: #f9f9f9;
+  --input-button-color: #26adf8;
+
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;

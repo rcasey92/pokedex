@@ -10,9 +10,12 @@ const INDICATOR_Y = 10;
 const Scanner = () => {
   return (
     <section className="scannerContainer">
-      <div className="" />
-      <div className="" />
-      <svg height={200} width={400} viewBox="0 0 75 75">
+      <svg
+        height={200}
+        width={400}
+        viewBox="0 0 75 75"
+        aria-label="Pokedex scanner and lights"
+      >
         <defs>
           <filter
             id="scanner-shadow"
@@ -21,7 +24,7 @@ const Scanner = () => {
             width="200%"
             height="200%"
           >
-            <feGaussianBlur in="SourceAlpha" stdDeviation="" />
+            <feGaussianBlur in="SourceAlpha" stdDeviation="0.25" />
             <feOffset dx="1" dy="1" result="offsetblur" />
             <feComponentTransfer>
               <feFuncA type="linear" slope="0.25" />

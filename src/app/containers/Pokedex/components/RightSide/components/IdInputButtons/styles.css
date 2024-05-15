@@ -13,17 +13,18 @@
 
 .inputButton {
   position: relative;
-  background-color: #26adf8;
+  background-color: var(--input-button-color);
   border-top: none;
   border-left: none;
   border-right: 1px solid #000;
   border-bottom: 1px solid #000;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  font-family: "Courier New", monospace;
-  font-size: 1.15rem;
-  color: #dc082e;
+  font-family: var(--base-font-family);
+  font-size: 1.5rem;
+  color: var(--border-color);
   cursor: pointer;
+  font-weight: 500;
 }
 
 .buttonClicked {
