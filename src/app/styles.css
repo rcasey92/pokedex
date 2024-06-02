@@ -5,6 +5,14 @@
   font-family: var(--base-font-family);
 }
 
+.backgroundStyles {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+}
+
 .main {
   display: flex;
   flex-direction: column;

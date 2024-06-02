@@ -20,7 +20,10 @@ const ControlPad = () => {
         Increment
       </button>
       <button
-        onClick={() => dispatch(moveFocusToTheRight())}
+        onClick={() => {
+          console.log("clicked");
+          dispatch(moveFocusToTheRight());
+        }}
         className="control right"
       >
         Move Focus Right

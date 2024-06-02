@@ -19,7 +19,7 @@ const RightSide: FC<any> = () => {
   const dispatch = useAppDispatch();
   const currentId = useAppSelector(selectId);
   const highlightedIndex = useAppSelector(selectHighlightedIndex);
-
+  console.log(inputId);
   useEffect(() => {
     if (currentId === "0") {
       setInputId("");
@@ -47,7 +47,7 @@ const RightSide: FC<any> = () => {
         <PillButton
           className="buttonBackground"
           onClick={() => {
-            dispatch(setId(inputId));
+            Number(inputId) > 0 && dispatch(setId(inputId));
             setInputId("");
           }}
           label={"submit input id"}
