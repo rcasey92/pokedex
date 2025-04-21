@@ -32,7 +32,6 @@ const usePokemonDetails = (species: PokemonDetails): EnglishDetails => {
     const { genera, flavor_text_entries } = species;
 
     const englishGenera = useMemo(() => {
-        console.log(genera)
         return genera?.find(g => g.language.name === "en")?.genus || "";
     }, [genera]);
 

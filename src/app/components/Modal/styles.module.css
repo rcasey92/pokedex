@@ -76,9 +76,8 @@
     }
 
     .spriteContainer {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        display: inline-flex;
+        justify-content: flex-end;
         grid-row: 1;
     }
 
