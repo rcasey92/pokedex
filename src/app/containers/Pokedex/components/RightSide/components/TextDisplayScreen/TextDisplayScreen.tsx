@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./styles.css";
+import styles from "./styles.module.css";
 
 const TextDisplayScreen = () => {
   return (
-    <div className="displayScreen">
-      <p>
+    <div className={styles.displayScreen}>
+      <p className={styles.introductoryText}>
         Enter a 4 digit number to display a pokemon
         <br />
         <br />

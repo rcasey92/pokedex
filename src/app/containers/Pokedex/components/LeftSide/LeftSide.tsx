@@ -1,11 +1,17 @@
 import React, { FC } from "react";
 
 import { Screen, Scanner, Controls } from "./components";
-import "./styles.css";
+import styles from "./styles.module.css";
 
-const LeftSide: FC<any> = () => {
+/**
+ * @component LeftSide
+ * @description LeftSide component that contains the Scanner, Screen, and Controls components.
+ * 
+ * @returns {JSX.Element}
+ */
+const LeftSide = (): JSX.Element => {
   return (
-    <section className={"leftSideContainer"}>
+    <section className={styles.leftSideContainer}>
         <Scanner />
         <Screen />
         <Controls />

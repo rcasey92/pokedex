@@ -1,26 +1,24 @@
-import React from "react";
-import { useGetPokemonByNameQuery } from "@/app/containers/Pokedex/redux/api";
-import { useAppSelector } from "@/redux/hooks";
-import { selectId } from "@/app/containers/Pokedex/redux/pokemonState";
+import { useGetPokemonByNameQuery } from "@app/containers/Pokedex/redux/api";
+import { selectId } from "@app/containers/Pokedex/redux/pokemonState";
+import capitalizeFirstLetter from "@app/utils/capitalizeFirstLetter";
+import CircularShadow from "@app/components/CircularShadow";
+import { useAppSelector } from "@redux/hooks";
+
 import Image from "next/image";
-import CircularShadow from "@/app/components/CircularShadow";
-import "./styles.css";
+
+import styles from "./styles.module.css";
 
 const Screen = () => {
   const currentId: string = useAppSelector(selectId);
   const sanitizedId: string = currentId.replace(/^0+/, "");
   const { data, error, isLoading } = useGetPokemonByNameQuery(sanitizedId);
-  // temporary type assertion to avoid typescript error(needs a real interface)
+  // temporary type assertion to avoid typescript error, this needs a real typing
   const sprite_url: string = (data as any)?.sprites?.front_default;
 
-  const capitalizeFirstLetter = (str: string) => {
-    return str?.charAt(0).toUpperCase() + str?.slice(1).toLowerCase();
-  };
-
   return (
-    <section className="screenBorder">
+    <section className={styles.screenBorder}>
       <CircularShadow
-        className="doubleIndicators"
+        className={styles.doubleIndicators}
         id="shadow"
         label="decorative indicator lights"
       >
@@ -29,35 +27,35 @@ const Screen = () => {
         <circle fill="#fb5145" cx={145} cy={15} r={10} />
         <circle fill="#fff" cx={142} cy={12.5} r={2.5} />
       </CircularShadow>
-      <div className="screen">
+      <div className={styles.screen}>
         {(currentId === "0" && !isLoading) || error ? (
           <p
             aria-label="Welcome to your pokedex! Please enter a valid pokemon id with the input keys to get started."
-            className="introductionText"
+            className={styles.introductionText}
           >
             Welcome to your pokedex!
             <br />
             <br />
-            Please enter a valid pokemon id to get started.
+            Please enter a valid pokemon ID to get started.
           </p>
         ) : isLoading ? (
-          <p className="introductionText">Loading...</p>
+          <p className={styles.introductionText}>Loading...</p>
         ) : (
           <>
-            <h2 className="">{`#${sanitizedId}: ${capitalizeFirstLetter(
-              data?.name
-            )}`}</h2>
+            <h2 className={styles.pokemonTitle}>
+              {`#${sanitizedId}: ${capitalizeFirstLetter((data as any)?.name)}`}
+            </h2>
             <Image
-              height={256}
-              width={256}
-              className="spriteImage"
+              height={225}
+              width={225}
+              className={styles.spriteImage}
               alt="${data.name}"
               src={sprite_url}
             />
           </>
         )}
       </div>
-      <svg className="bottomIndicators" aria-label="small decorative elements">
+      <svg className={styles.bottomIndicators}>
         <g>
           <circle filter="url(#shadow)" fill="#fb5145" cx={75} cy={15} r={15} />
           <circle fill="#fff" cx={70} cy={11.5} r={3.25} />

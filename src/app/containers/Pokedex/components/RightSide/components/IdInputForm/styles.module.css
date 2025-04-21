@@ -1,0 +1,63 @@
+.buttonContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0.25rem;
+  margin: 1rem auto 0.5rem auto;
+  background-color: inherit;
+  height: 7rem;
+  grid-template-rows: 1fr 1fr;
+  width: 20rem;
+  position: relative;
+  z-index: 2;
+}
+
+.inputButton {
+  position: relative;
+  background-color: var(--input-button-color);
+  border-top: none;
+  border-left: none;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: var(--font-pokefont);
+  font-size: 1.5rem;
+  color: var(--border-color);
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 0.5rem;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 2.5rem auto auto;
+  width: 5.5rem;
+
+  .buttonBackground {
+    background-color: #4c4c4c;
+  }
+}
+
+.inputElement {
+  display: contents;
+}
+
+.buttonClicked {
+  border-right: none;
+  border-bottom: none;
+  box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

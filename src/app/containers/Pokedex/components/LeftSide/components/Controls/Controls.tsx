@@ -1,25 +1,45 @@
-import React from "react";
+import { useCallback, useMemo } from "react";
 
-import { useAppSelector } from "@/redux/hooks";
-import { selectId } from "@/app/containers/Pokedex/redux/pokemonState";
-import { PillButton, ControlPad, CircularShadow } from "@/app/components";
+import { selectId, selectHighlightedIndex, resetId } from "@app/containers/Pokedex/redux/pokemonState";
+import { openModal } from "@app/containers/Pokedex/redux/modal";
+import { useAppSelector, useAppDispatch } from "@redux/hooks";
 
-import "./styles.css";
 
-const Controls = () => {
+import { PillButton, IdDisplay, ControlPad, CircularShadow } from "@app/components";
+
+import styles from "./styles.module.css";
+
+
+/**
+ * @component Controls
+ * @description Controls component that renders the control pad, indicator lights,
+ * and active ID display.
+ *
+ * @returns {JSX.Element}
+ */
+const Controls = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   const currentId: string = useAppSelector(selectId);
+  const highlightedIndex = useAppSelector(selectHighlightedIndex);
 
-  const displayArray =
-    currentId !== ""
-      ? currentId.slice(0, 4).padStart(4, "0").split("")
-      : [0, 0, 0, 0];
+  const resetInputId = useCallback(() => {
+    dispatch(resetId());
+  }, [dispatch]);
+
+  const openPokemonDetailsModal = useCallback(() => {
+    dispatch(openModal());
+  }, [dispatch]);
+
+  const controlButtonsDisabled = useMemo(() => (
+    currentId === "" || Number(currentId) <= 0
+  ), [currentId]);
 
   return (
-    <section className="controlGrid">
+    <section className={styles.controlGrid}>
       <div>
         <CircularShadow
-          className="controlButton"
-          id="control-shadow"
+          className={styles.controlButton}
+          id="control-shadow" // id for filter access
           label="decorative indicator lights"
         >
           <circle
@@ -30,31 +50,34 @@ const Controls = () => {
             r={17}
           />
         </CircularShadow>
-        <div className="buttonGroup">
-          <PillButton className="redButton" tabIndex={-1} />
-          <PillButton className="blueButton" tabIndex={-1} />
+        <div className={styles.buttonGroup}>
+          <PillButton
+            className={styles.redButton}
+            disabled={controlButtonsDisabled}
+            onClick={resetInputId}
+            label="reset input id"
+          />
+          <PillButton
+            className={styles.blueButton}
+            disabled={controlButtonsDisabled}
+            onClick={openPokemonDetailsModal}
+            label="Open pokemon details"
+          />
         </div>
       </div>
-      <svg className="speakerDots" aria-label="speaker dots">
+      <svg className={styles.speakerDots} height="100" width="100">
         <circle fill="#000" cx={35} cy={47.5} r={3.5} />
         <circle fill="#000" cx={60} cy={47.5} r={3.5} />
       </svg>
-      <div
-        className="currentPokemonIdScreen"
-        aria-label={`the current id is ${currentId}`}
-      >
-        {displayArray.map((value: string | number, index: number) => (
-          <span
-            aria-hidden
-            key={`display_digit_${index}`}
-            className="numberContainer"
-          >
-            {value.toString()}
-          </span>
-        ))}
-      </div>
+      <IdDisplay
+        inputId={currentId}
+        focusedId={highlightedIndex}
+        label="active_id"
+        cellClass={styles.numberContainer}
+        wrapperClass={styles.currentPokemonIdScreen}
+      />
       <ControlPad />
-      <svg className="speakerDots bottomSpeakerDots" aria-label="speaker dots">
+      <svg className={`${styles.speakerDots} ${styles.bottomSpeakerDots}`}>
         <circle fill="#000" cx={215} cy={4} r={3.5} />
         <rect
           height={3}

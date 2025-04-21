@@ -1,15 +1,16 @@
-import React from "react";
+import { SCANNER_X, SCANNER_Y, INDICATOR_Y } from "./constants";
 
-import "./styles.css";
+import styles from "./styles.module.css";
 
-const SCANNER_Y = 15;
-const SCANNER_X = -22.5;
-
-const INDICATOR_Y = 10;
-
-const Scanner = () => {
+/**
+ * @component Scanner
+ * @description Scanner component that displays a scanner and lights.
+ *
+ * @returns {JSX.Element}
+ */
+const Scanner = (): JSX.Element => {
   return (
-    <section className="scannerContainer">
+    <section className={styles.scannerContainer}>
       <svg
         height={200}
         width={400}

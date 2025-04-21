@@ -1,0 +1,11 @@
+.statTitle {
+    font-weight: bold;
+    text-decoration: underline solid black 3px;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    padding: 1rem 0 0.5rem 0;
+}

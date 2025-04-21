@@ -1,0 +1,58 @@
+.screenBorder {
+  position: relative;
+  width: 20rem;
+  height: 23rem;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 1rem;
+
+  .screen {
+    width: 16rem;
+    height: 16rem;
+    background-color: var(--screen-color);
+    margin: 2rem auto;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+
+    .spriteImage {
+      height: 100%;
+      width: 100%;
+    }
+
+    .introductionText {
+      text-align: center;
+      vertical-align: middle;
+      font-size: 0.85rem;
+      padding-top: 6rem;
+      margin: 0 0.25rem;
+      font-family: var(--font-pokefont);
+      color: var(--screen-text-color);
+    }
+
+    .pokemonTitle {
+      color: var(--screen-text-color);
+      font-size: 0.75rem;
+      font-family: var(--font-pokefont);
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+  }
+
+  .doubleIndicators {
+    position: absolute;
+  }
+
+  .bottomIndicators {
+    transform: translateY(-1rem);
+  }
+}
+
+.screenBorder::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top: 3rem solid var(--background-color-default);
+  border-left: 3rem solid transparent;
+  transform: rotate(180deg);
+}

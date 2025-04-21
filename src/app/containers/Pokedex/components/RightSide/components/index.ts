@@ -1,4 +1,9 @@
 import TextDisplayScreen from "./TextDisplayScreen";
-import IdInputButtons from "./IdInputButtons";
+import IdInputForm from "./IdInputForm";
+import PreviewScreen from './PreviewScreen'
 
-export { TextDisplayScreen, IdInputButtons };
+export {
+    TextDisplayScreen,
+    IdInputForm,
+    PreviewScreen
+};

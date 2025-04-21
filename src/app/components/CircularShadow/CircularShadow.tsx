@@ -1,5 +1,3 @@
-import React, { FC } from "react";
-
 interface CircularShadowProps {
   children: React.ReactNode;
   id: string;
@@ -7,12 +5,18 @@ interface CircularShadowProps {
   label: string;
 }
 
-const CircularShadow: FC<CircularShadowProps> = ({
+/**
+ * @component CircularShadow
+ * @description A component that applies a circular shadow effect to its children.
+ *
+ * @returns {JSX.Element}
+ */
+const CircularShadow = ({
   children,
   id,
   className,
   label,
-}) => (
+}: CircularShadowProps): JSX.Element => (
   <svg className={className} aria-label={label}>
     <defs>
       <filter id={id} x="-40%" y="-40%" width="200%" height="200%">

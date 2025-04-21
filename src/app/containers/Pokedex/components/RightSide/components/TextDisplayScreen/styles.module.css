@@ -1,0 +1,19 @@
+.displayScreen {
+  display: flex;
+  margin: 7rem auto 0 auto;
+  align-items: center;
+  height: 12rem;
+  width: 20rem;
+  background-color: var(--screen-color);
+  border-radius: 0.5rem;
+  position: relative;
+
+  .introductoryText {
+    position: relative;
+    display: flex;
+    font-family: var(--font-pokefont);
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--screen-text-color);
+  }
+}

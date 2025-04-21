@@ -1,5 +1,11 @@
 import ControlPad from "./ControlPad";
 import CircularShadow from "./CircularShadow";
 import PillButton from "./PillButton";
+import IdDisplay from "./IdDisplay";
 
-export { ControlPad, CircularShadow, PillButton };
+export {
+    IdDisplay,
+    ControlPad,
+    CircularShadow,
+    PillButton
+};

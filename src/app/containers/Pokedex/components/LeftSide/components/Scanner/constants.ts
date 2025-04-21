@@ -1,0 +1,5 @@
+const SCANNER_Y = 15;
+const SCANNER_X = -22.5;
+const INDICATOR_Y = 10;
+
+export { SCANNER_X, SCANNER_Y, INDICATOR_Y };

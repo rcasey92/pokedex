@@ -1,0 +1,13 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: pokedex-app-service
+spec:
+  selector:
+    app: pokedex-app
+  ports:
+    - protocol: TCP
+      port: 80 # External port to expose
+      targetPort: 3000 # Port inside the container
+  type: LoadBalancer # Exposes the service externally
