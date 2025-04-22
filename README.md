@@ -3,6 +3,7 @@
 This is a simple pokedex application that will look up a pokemon by id. To begin the project run:
 
 ```bash
+npm i
 npm run dev
 ```
 
